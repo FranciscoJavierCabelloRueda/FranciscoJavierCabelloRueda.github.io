@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Francisco Javier Cabello Rueda - Portafolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Alternar modo oscuro">
+        <span class="sun-icon">☀️</span>
+        <span class="moon-icon">🌙</span>
+    </button>
+
+    <!-- Header / Hero Section -->
+    <header id="home" class="hero-section">
+        <div class="hero-bg-effects">
+            <div class="bg-blob blob-1"></div>
+            <div class="bg-blob blob-2"></div>
+            <div class="bg-blob blob-3"></div>
+        </div>
+
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                  <img src="img/pi.png" class="logo-light">
+                  <img src="img/pi-white.png" class="logo-dark">
+                </div>
+                <div class="nav-menu">
+                    <a href="#about" class="nav-link">Sobre mí</a>
+                    <a href="#projects" class="nav-link">Proyectos</a>
+                    <a href="#skills" class="nav-link">Habilidades</a>
+                    <a href="#contact" class="nav-link">Contacto</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="hero-content">
+            <img src="img/fran-cabello.png" class="hero-title logo-light">
+            <img src="img/fran-cabello-white.png" class="hero-title logo-dark">
+            <p class="hero-subtitle">Desarrollador web | Programador Full Stack</p>
+            <button class="hero-cta" onclick="scrollToContact()">Contactar</button>
+        </div>
+
+        <div class="scroll-indicator">
+            <div class="chevron-down">⌄</div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="section-bg-effects">
+            <div class="bg-decoration decoration-left"></div>
+            <div class="bg-decoration decoration-right"></div>
+        </div>
+        
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Sobre mí</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="about-content">
+                <div class="profile-container">
+                    <div class="profile-image-wrapper">
+                        <img src="img/tokito.png" 
+                             alt="Francisco Javier Cabello Rueda" 
+                             class="profile-image"
+                             id="profile-placeholder">
+                        <div class="profile-glow"></div>
+                    </div>
+                </div>
+
+                <div class="about-text">
+                    <p>
+                        Hola, soy <span class="highlight">Francisco Javier Cabello Rueda</span>, un
+                        programador Junior Full Stack especializado en backend, con formación en Desarrollo de Aplicaciones Web. Me 
+                        destaco por aportar soluciones prácticas que optimizan procesos y estoy motivado por seguir creciendo 
+                        profesionalmente y generar impacto en equipos de desarrollo.
+                    </p>
+                    
+                    <p>
+                        Estudie un Grado Superior en Desarrollo de Aplicaciones Web en el 
+                        <span class="highlight">CPIFP Alan Turing</span>, donde adquirí habilidades de desarrollo tanto en frontend como en backend.
+                    </p>
+                    
+                    <p>
+                        Cuando no estoy programando, me gusta explorar nuevos lenguajes e indagar sobre el 
+                        uso de la IA en la programación.                  
+                    </p>
+                    
+
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number">4+</div>
+                            <div class="stat-label">Proyectos</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">1+</div>
+                            <div class="stat-label">Años exp.</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">6+</div>
+                            <div class="stat-label">Lenguajes</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="section-bg-effects">
+            <div class="bg-blob blob-4"></div>
+            <div class="bg-blob blob-5"></div>
+        </div>
+
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Mis Proyectos</h2>
+                <div class="section-divider"></div>
+                <p class="section-description">
+                    Algunos de los proyectos en los que he trabajado.
+                </p>
+            </div>
+
+            <div class="projects-grid">
+                <a href="https://github.com/FranciscoJavierCabelloRueda/Shiftplan" target="_blank" class="project-card" style="text-decoration:none; color:inherit;">
+                    <div class="project-image">
+                        <img src="img/shiftplan.png">
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">ShiftPlan</h3>
+                        <p class="project-description">
+                            Aplicación en PHP para la gestión de empleados de un departamento.
+                        </p>
+                        <div class="project-technologies">
+                            <span class="tech-tag">Php</span>
+                            <span class="tech-tag">Linux Red Hat</span>
+                            <span class="tech-tag">Apache</span>
+                        </div>
+                    </div>
+                  </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Habilidades Técnicas</h2>
+                <div class="section-divider"></div>
+                <p class="section-description">
+                    Tecnologías y herramientas que domino para crear soluciones web completas y eficientes.
+                </p>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <div class="skill-icon">🌐</div>
+                        <h3 class="skill-title">Frontend</h3>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <span class="skill-name">HTML5</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-level="95"></div>
+                            </div>
+                            <span class="skill-percentage">95%</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">CSS3/Sass</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-level="90"></div>
+                            </div>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">JavaScript</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-level="92"></div>
+                            </div>
+                            <span class="skill-percentage">92%</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">React</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-level="88"></div>
+                            </div>
+                            <span class="skill-percentage">88%</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Vue.js</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-level="85"></div>
+                            </div>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <div class="skill-icon">⚙️</div>
+                        <h3 class="skill-title">Backend</h3>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <span class="skill-name">Node.js</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-level="87"></div>
+                            </div>
+                            <span class="skill-percentage">87%</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Python</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-level="90"></div>
+                            </div>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">FastAPI</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-level="85"></div>
+                            </div>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Express.js</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-level="88"></div>
+                            </div>
+                            <span class="skill-percentage">88%</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Django</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-level="80"></div>
+                            </div>
+                            <span class="skill-percentage">80%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <div class="skill-icon">🗄️</div>
+                        <h3 class="skill-title">Base de Datos</h3>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <span class="skill-name">MongoDB</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-level="88"></div>
+                            </div>
+                            <span class="skill-percentage">88%</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">PostgreSQL</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-level="85"></div>
+                            </div>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">MySQL</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-level="82"></div>
+                            </div>
+                            <span class="skill-percentage">82%</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Redis</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-level="75"></div>
+                            </div>
+                            <span class="skill-percentage">75%</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Firebase</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-level="80"></div>
+                            </div>
+                            <span class="skill-percentage">80%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="section-bg-effects">
+            <div class="bg-blob blob-6"></div>
+            <div class="bg-blob blob-7"></div>
+        </div>
+
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Trabajemos Juntos</h2>
+                <div class="section-divider"></div>
+                <p class="section-description">
+                    ¿Tienes un proyecto en mente? Me encantaría escuchar tus ideas y 
+                    ayudarte a convertirlas en realidad.
+                </p>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-form-wrapper">
+                    <div class="contact-form-container">
+                        <h3 class="form-title">Envíame un mensaje</h3>
+                        
+                        <form id="contact-form" class="contact-form">
+                            <div class="form-group">
+                                <label for="name" class="form-label">Nombre completo</label>
+                                <input type="text" id="name" name="name" class="form-input" placeholder="Tu nombre" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" id="email" name="email" class="form-input" placeholder="tu@email.com" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message" class="form-label">Mensaje</label>
+                                <textarea id="message" name="message" class="form-textarea" placeholder="Cuéntame sobre tu proyecto..." rows="5" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="form-submit" id="submit-btn">
+                                <span class="btn-text">📤 Enviar mensaje</span>
+                                <span class="btn-loading" style="display: none;">⏳ Enviando...</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="contact-info-wrapper">
+                    <div class="contact-info-container">
+                        <h3 class="info-title">Información de contacto</h3>
+                        
+                        <div class="contact-info-list">
+                            <div class="contact-info-item">
+                                <div class="info-icon">📧</div>
+                                <div class="info-content">
+                                    <p class="info-label">Email</p>
+                                    <a href="mailto:francisco.cabello@email.com" class="info-value">francisco.cabello@email.com</a>
+                                </div>
+                            </div>
+                            <div class="contact-info-item">
+                                <div class="info-icon">📱</div>
+                                <div class="info-content">
+                                    <p class="info-label">Teléfono</p>
+                                    <a href="tel:+34123456789" class="info-value">+34 123 456 789</a>
+                                </div>
+                            </div>
+                            <div class="contact-info-item">
+                                <div class="info-icon">📍</div>
+                                <div class="info-content">
+                                    <p class="info-label">Ubicación</p>
+                                    <span class="info-value">España</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-links-container">
+                        <h3 class="social-title">Sígueme</h3>
+                        <div class="social-links">
+                            <a href="https://github.com" target="_blank" class="social-link" aria-label="GitHub">
+                                <span class="social-icon">💾</span>
+                            </a>
+                            <a href="https://linkedin.com" target="_blank" class="social-link" aria-label="LinkedIn">
+                                <span class="social-icon">💼</span>
+                            </a>
+                            <a href="mailto:francisco.cabello@email.com" class="social-link" aria-label="Email">
+                                <span class="social-icon">📧</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo-icon">FJC</div>
+                    <span class="logo-text">Francisco Javier Cabello Rueda</span>
+                </div>
+                <p class="footer-description">
+                    Desarrollador Full Stack • Creando experiencias digitales excepcionales
+                </p>
+                <div class="footer-divider"></div>
+                <p class="footer-copyright">
+                    © 2025 Francisco Javier Cabello Rueda. Todos los derechos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <div class="toast-content">
+            <span class="toast-icon">✅</span>
+            <span class="toast-message">¡Mensaje enviado! Gracias por contactarme. Te responderé pronto.</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
