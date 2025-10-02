@@ -661,6 +661,13 @@ section {
     color: white;
 }
 
+.skill-icon img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    display: block;
+}
+
 .skill-title {
     font-family: 'Crimson Text', serif;
     font-size: 24px;
@@ -704,10 +711,23 @@ section {
 
 .skill-percentage {
     min-width: 40px;
-    text-align: right;
-    font-weight: 600;
-    color: var(--accent-primary);
-    font-size: 14px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: unset;
+    font-size: unset;
+    font-weight: unset;
+}
+
+.skill-percentage img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
 }
 
 /* Contact Section */
