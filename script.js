@@ -272,7 +272,7 @@ class AnimationObserver {
 
     observeElements() {
         const animatedElements = document.querySelectorAll(
-            '.project-card, .skill-category, .contact-form-container, .contact-info-container'
+            '.project-card, .skill-category, .contact-form-container, .contact-info-container, .social-links-container'
         );
 
         animatedElements.forEach((el, index) => {
