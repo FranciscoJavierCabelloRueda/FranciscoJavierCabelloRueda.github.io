@@ -1130,7 +1130,7 @@ section {
         justify-content: center;
         text-align: center;
         width: 100%;
-        max-width: 420px;    /* Limita el ancho máximo de los contenedores */
+        max-width: 385px;    /* Limita el ancho máximo de los contenedores */
         box-sizing: border-box;
     }
 
