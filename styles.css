@@ -103,11 +103,10 @@ body {
     opacity: 1;
 }
 
-:root .sun-icon {
+[data-theme="light"] .sun-icon {
     opacity: 1;
 }
-
-:root .moon-icon {
+[data-theme="light"] .moon-icon {
     opacity: 0.3;
 }
 
@@ -1083,6 +1082,7 @@ section {
 }
 
 /* Responsive Design */
+/* Responsive Design */
 @media (max-width: 768px) {
     .nav-menu {
         display: none;
@@ -1110,6 +1110,37 @@ section {
     .contact-content {
         grid-template-columns: 1fr;
         gap: 40px;
+        justify-items: center;
+        align-items: center;
+        display: grid;
+    }
+
+    .contact-form-container,
+    .contact-info-container,
+    .social-links-container {
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .footer-logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 16px auto;
+        width: 100%;
+    }
+    .logo-icon {
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     
     .skill-item {
