@@ -1112,20 +1112,23 @@ section {
         justify-items: center;
         align-items: center;
         display: grid;
+        width: 100%;
+        padding: 0;
     }
 
     .contact-form-container,
     .contact-info-container,
     .social-links-container {
-        margin-left: auto;
-        margin-right: auto;
+        margin-left: 0;
+        margin-right: 0;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         text-align: center;
         width: 100%;
-        max-width: 400px;
+        max-width: none;
+        box-sizing: border-box;
     }
 
     .footer-logo {
