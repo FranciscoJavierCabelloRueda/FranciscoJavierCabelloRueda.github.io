@@ -1082,7 +1082,6 @@ section {
 }
 
 /* Responsive Design */
-/* Responsive Design */
 @media (max-width: 768px) {
     .nav-menu {
         display: none;
@@ -1133,7 +1132,7 @@ section {
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 0 auto 16px auto;
+        margin: 0 auto;
         width: 100%;
     }
     .logo-icon {
