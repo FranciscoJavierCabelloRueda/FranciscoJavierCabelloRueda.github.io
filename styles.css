@@ -1114,6 +1114,9 @@ section {
         display: grid;
         width: 100%;
         padding: 0;
+        max-width: 420px;    /* Limita el ancho máximo en móvil */
+        margin: 0 auto;      /* Centra el grid en la pantalla */
+        box-sizing: border-box;
     }
 
     .contact-form-container,
@@ -1127,7 +1130,7 @@ section {
         justify-content: center;
         text-align: center;
         width: 100%;
-        max-width: none;
+        max-width: 420px;    /* Limita el ancho máximo de los contenedores */
         box-sizing: border-box;
     }
 
@@ -1181,41 +1184,5 @@ section {
         height: 100%;
         object-fit: contain;
         display: block;
-    }
-}
-
-@media (max-width: 480px) {
-    .container {
-        padding: 0 15px;
-    }
-    
-    .hero-content {
-        padding: 0 15px;
-    }
-    
-    .profile-image {
-        width: 220px;
-        height: 220px;
-    }
-    
-    .projects-grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
-    }
-    
-    .project-card {
-        margin: 0;
-    }
-    
-    .social-links {
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-    
-    .toast {
-        bottom: 15px;
-        right: 15px;
-        left: 15px;
-        max-width: none;
     }
 }
