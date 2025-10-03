@@ -79,8 +79,20 @@ body {
 }
 
 .sun-icon, .moon-icon {
-    font-size: 16px;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: opacity 0.3s ease;
+}
+
+.sun-icon img,
+.moon-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
 }
 
 [data-theme="dark"] .sun-icon {
@@ -271,6 +283,13 @@ body {
 
 [data-theme="dark"] .logo-dark {
     display: block;
+}
+
+[data-theme="light"] .logo-dark {
+    display: none !important;
+}
+[data-theme="light"] .logo-light {
+    display: block !important;
 }
 
 .nav-menu {
@@ -942,28 +961,37 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
+    gap: 0; /* Sin espacio entre logo-icon y logo-text */
     margin-bottom: 16px;
 }
 
 .logo-icon {
-    width: 32px;
-    height: 32px;
-    background: var(--accent-gradient);
-    color: white;
-    border-radius: 50%;
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 14px;
+    justify-content: center; /* Centra horizontalmente la imagen dentro del contenedor */
+    height: 30px;      /* Altura sugerida para el logo */
+    width: 90px;       /* Ancho sugerido para el logo */
+    padding: 0;
+    margin: 0 auto;    /* Centra el contenedor si es necesario */
+}
+
+.logo-icon img {
+    height: 100%;
+    width: auto;
+    display: block;
+    margin: 0 auto;    /* Centra la imagen dentro del contenedor */
 }
 
 .logo-text {
-    font-family: 'Crimson Text', serif;
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--text-primary);
+    display: block;
+    width: 120px;         /* Ajusta el ancho según tu imagen */
+    height: 32px;         /* Ajusta la altura según tu imagen */
+    object-fit: contain;  /* Mantiene la proporción de la imagen */
+    margin: 0 auto;
+    font-family: unset;
+    font-size: unset;
+    font-weight: unset;
+    color: unset;
 }
 
 .footer-description {
@@ -1107,7 +1135,19 @@ section {
     }
     
     .sun-icon, .moon-icon {
-        font-size: 14px;
+        width: 15px;
+        height: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .sun-icon img,
+    .moon-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
     }
 }
 
