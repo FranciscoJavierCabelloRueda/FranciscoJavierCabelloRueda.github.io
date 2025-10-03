@@ -1109,29 +1109,43 @@ section {
     .contact-content {
         grid-template-columns: 1fr;
         gap: 40px;
+        display: grid;
         justify-items: center;
         align-items: center;
-        display: grid;
         width: 100%;
         padding: 0;
-        max-width: 420px;    /* Limita el ancho máximo en móvil */
-        margin: 0 auto;      /* Centra el grid en la pantalla */
+        max-width: 420px;
+        margin: 0 auto;
         box-sizing: border-box;
     }
 
     .contact-form-container,
     .contact-info-container,
     .social-links-container {
-        margin-left: 0;
-        margin-right: 0;
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        justify-items: center;
         align-items: center;
-        justify-content: center;
         text-align: center;
         width: 100%;
-        max-width: 385px;    /* Limita el ancho máximo de los contenedores */
+        max-width: 340px; /* Más reducido para móvil */
         box-sizing: border-box;
+        margin: 0;
+        padding: 24px 10px; /* Reduce padding lateral */
+        overflow-wrap: break-word; /* Evita desbordes de texto */
+        word-break: break-word;
+    }
+
+    .contact-info-list,
+    .contact-info-item {
+        width: 100%;
+        box-sizing: border-box;
+        flex-wrap: wrap;
+        overflow-wrap: break-word;
+        word-break: break-word;
+    }
+
+    .info-value {
+        word-break: break-all;
     }
 
     .footer-logo {
