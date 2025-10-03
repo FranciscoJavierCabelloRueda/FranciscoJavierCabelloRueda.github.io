@@ -1135,6 +1135,10 @@ section {
         word-break: break-word;
     }
 
+     .social-links-container {
+        margin-top: 40px; /* Añade separación arriba en móvil */
+    }
+
     .contact-info-list,
     .contact-info-item {
         width: 100%;
