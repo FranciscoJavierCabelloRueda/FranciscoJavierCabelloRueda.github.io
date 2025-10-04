@@ -1,27 +1,35 @@
-// Theme Management
+/**
+ * Gestiona el tema de la página (claro/oscuro).
+ * Guarda la preferencia del usuario en localStorage.
+ */
 class ThemeManager {
     constructor() {
+        // Obtiene el tema actual de localStorage o usa 'light' por defecto.
         this.currentTheme = localStorage.getItem('theme') || 'light';
         this.init();
     }
 
     init() {
+        // Aplica el tema inicial y asigna el evento al botón de cambio de tema.
         this.setTheme(this.currentTheme);
         this.bindEvents();
     }
 
     setTheme(theme) {
+        // Establece el atributo 'data-theme' en el elemento <html> y lo guarda en localStorage.
         document.documentElement.setAttribute('data-theme', theme);
         localStorage.setItem('theme', theme);
         this.currentTheme = theme;
     }
 
     toggle() {
+        // Cambia entre el tema claro y oscuro.
         const newTheme = this.currentTheme === 'light' ? 'dark' : 'light';
         this.setTheme(newTheme);
     }
 
     bindEvents() {
+        // Asigna el evento de clic al botón de cambio de tema.
         const toggleBtn = document.getElementById('theme-toggle');
         if (toggleBtn) {
             toggleBtn.addEventListener('click', () => this.toggle());
@@ -29,24 +37,28 @@ class ThemeManager {
     }
 }
 
-// Smooth Scroll Navigation
+/**
+ * Gestiona la navegación con desplazamiento suave y resalta el enlace activo.
+ */
 class NavigationManager {
     constructor() {
         this.init();
     }
 
     init() {
+        // Inicializa el desplazamiento suave y la actualización del enlace de navegación activo.
         this.bindSmoothScroll();
         this.updateActiveNavigation();
     }
 
     bindSmoothScroll() {
-        // Smooth scroll for navigation links
+        // Añade un evento de clic a los enlaces de anclaje para un desplazamiento suave.
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', (e) => {
                 e.preventDefault();
                 const target = document.querySelector(anchor.getAttribute('href'));
                 if (target) {
+                    // Desplaza la vista hasta el elemento de destino.
                     target.scrollIntoView({
                         behavior: 'smooth',
                         block: 'start'
@@ -57,11 +69,13 @@ class NavigationManager {
     }
 
     updateActiveNavigation() {
+        // Escucha el evento de scroll para resaltar el enlace de navegación correspondiente a la sección visible.
         window.addEventListener('scroll', () => {
             const sections = document.querySelectorAll('section[id]');
             const navLinks = document.querySelectorAll('.nav-link');
             
             let current = '';
+            // Determina qué sección está actualmente en la parte superior de la ventana.
             sections.forEach(section => {
                 const sectionTop = section.getBoundingClientRect().top;
                 if (sectionTop <= 150) {
@@ -69,6 +83,7 @@ class NavigationManager {
                 }
             });
 
+            // Añade o quita la clase 'active' de los enlaces de navegación.
             navLinks.forEach(link => {
                 link.classList.remove('active');
                 if (link.getAttribute('href') === `#${current}`) {
@@ -79,21 +94,27 @@ class NavigationManager {
     }
 }
 
-// Skills Animation
+/**
+ * Anima las barras de progreso de habilidades cuando la sección es visible.
+ */
 class SkillsAnimator {
     constructor() {
+        // Flag para asegurar que la animación se ejecute solo una vez.
         this.animated = false;
         this.init();
     }
 
     init() {
+        // Asigna el evento de scroll para disparar la animación.
         this.bindScrollAnimation();
     }
 
     bindScrollAnimation() {
+        // Escucha el evento de scroll.
         window.addEventListener('scroll', () => {
             if (!this.animated) {
                 const skillsSection = document.getElementById('skills');
+                // Si la sección de habilidades está en el viewport, anima las barras.
                 if (skillsSection && this.isElementInViewport(skillsSection)) {
                     this.animateSkillBars();
                     this.animated = true;
@@ -103,6 +124,7 @@ class SkillsAnimator {
     }
 
     isElementInViewport(element) {
+        // Comprueba si un elemento está completamente dentro de la ventana visible.
         const rect = element.getBoundingClientRect();
         return (
             rect.top >= 0 &&
@@ -113,106 +135,22 @@ class SkillsAnimator {
     }
 
     animateSkillBars() {
+        // Selecciona todas las barras de progreso.
         const skillBars = document.querySelectorAll('.skill-progress');
         skillBars.forEach((bar, index) => {
+            // Obtiene el nivel de la habilidad del atributo 'data-level'.
             const level = bar.getAttribute('data-level');
             setTimeout(() => {
+                // Anima el ancho de la barra con un pequeño retraso para cada una.
                 bar.style.width = level + '%';
             }, index * 100);
         });
     }
 }
 
-// Form Handler
-class ContactFormManager {
-    constructor() {
-        this.form = document.getElementById('contact-form');
-        this.submitBtn = document.getElementById('submit-btn');
-        this.toast = document.getElementById('toast');
-        this.init();
-    }
-
-    init() {
-        if (this.form) {
-            this.bindFormSubmission();
-        }
-    }
-
-    bindFormSubmission() {
-        this.form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            await this.handleFormSubmission();
-        });
-    }
-
-    async handleFormSubmission() {
-        const formData = new FormData(this.form);
-        const name = formData.get('name');
-        const email = formData.get('email');
-        const message = formData.get('message');
-
-        // Validate form
-        if (!name || !email || !message) {
-            this.showToast('Por favor, completa todos los campos.', 'error');
-            return;
-        }
-
-        // Show loading state
-        this.setLoadingState(true);
-
-        // Simulate form submission (replace with actual API call)
-        try {
-            await this.submitForm({ name, email, message });
-            this.showToast('¡Mensaje enviado! Gracias por contactarme. Te responderé pronto.', 'success');
-            this.form.reset();
-        } catch (error) {
-            this.showToast('Error al enviar el mensaje. Inténtalo de nuevo.', 'error');
-        } finally {
-            this.setLoadingState(false);
-        }
-    }
-
-    async submitForm(data) {
-        // Simulate API call delay
-        return new Promise((resolve) => {
-            setTimeout(() => {
-                console.log('Form submitted:', data);
-                resolve();
-            }, 2000);
-        });
-    }
-
-    setLoadingState(loading) {
-        const btnText = this.submitBtn.querySelector('.btn-text');
-        const btnLoading = this.submitBtn.querySelector('.btn-loading');
-        
-        if (loading) {
-            btnText.style.display = 'none';
-            btnLoading.style.display = 'inline';
-            this.submitBtn.disabled = true;
-        } else {
-            btnText.style.display = 'inline';
-            btnLoading.style.display = 'none';
-            this.submitBtn.disabled = false;
-        }
-    }
-
-    showToast(message, type = 'success') {
-        const toastMessage = this.toast.querySelector('.toast-message');
-        const toastIcon = this.toast.querySelector('.toast-icon');
-        
-        toastMessage.textContent = message;
-        toastIcon.textContent = type === 'success' ? '✅' : '❌';
-        
-        this.toast.classList.add('show');
-        
-        setTimeout(() => {
-            this.toast.classList.remove('show');
-        }, 5000);
-    }
-}
-
-// Parallax Effects
+/**
+ * Gestiona los efectos de paralaje en elementos de la página al hacer scroll.
+ */
 class ParallaxManager {
     constructor() {
         this.init();
@@ -223,18 +161,19 @@ class ParallaxManager {
     }
 
     bindScrollEffects() {
+        // Escucha el evento de scroll para aplicar transformaciones.
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
             const rate = scrolled * -0.5;
 
-            // Parallax effect for background blobs
+            // Efecto de paralaje para los "blobs" de fondo.
             const blobs = document.querySelectorAll('.bg-blob');
             blobs.forEach((blob, index) => {
                 const speed = 0.2 + (index * 0.1);
                 blob.style.transform = `translateY(${scrolled * speed}px)`;
             });
 
-            // Hero section parallax
+            // Efecto de paralaje para el contenido de la sección "hero".
             const heroContent = document.querySelector('.hero-content');
             if (heroContent) {
                 heroContent.style.transform = `translateY(${rate}px)`;
@@ -243,7 +182,9 @@ class ParallaxManager {
     }
 }
 
-// Intersection Observer for Animations
+/**
+ * Utiliza IntersectionObserver para animar elementos cuando entran en el viewport.
+ */
 class AnimationObserver {
     constructor() {
         this.init();
@@ -255,12 +196,14 @@ class AnimationObserver {
     }
 
     createObserver() {
+        // Configuración del observador.
         const options = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
 
         this.observer = new IntersectionObserver((entries) => {
+            // Cuando un elemento observado entra en el viewport, le añade la clase 'animate-in'.
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('animate-in');
@@ -271,11 +214,13 @@ class AnimationObserver {
     }
 
     observeElements() {
+        // Selecciona todos los elementos que deben ser animados.
         const animatedElements = document.querySelectorAll(
             '.project-card, .skill-category, .contact-form-container, .contact-info-container, .social-links-container'
         );
 
         animatedElements.forEach((el, index) => {
+            // Prepara los elementos para la animación (los hace invisibles y los desplaza).
             el.style.opacity = '0';
             el.style.transform = 'translateY(50px)';
             el.style.transition = `all 0.6s ease ${index * 0.1}s`;
@@ -284,7 +229,9 @@ class AnimationObserver {
     }
 }
 
-// Utility Functions
+/**
+ * Función de utilidad para desplazarse suavemente a la sección de contacto.
+ */
 function scrollToContact() {
     const contactSection = document.getElementById('contact');
     if (contactSection) {
@@ -295,6 +242,10 @@ function scrollToContact() {
     }
 }
 
+/**
+ * Función de utilidad para retrasar la ejecución de una función (debounce).
+ * Evita que una función se llame demasiadas veces en un corto período de tiempo.
+ */
 function debounce(func, wait) {
     let timeout;
     return function executedFunction(...args) {
@@ -307,87 +258,7 @@ function debounce(func, wait) {
     };
 }
 
-// Mouse Trail Effect (Optional Enhancement)
-class MouseTrail {
-    constructor() {
-        this.dots = [];
-        this.mouse = { x: 0, y: 0 };
-        this.init();
-    }
-
-    init() {
-        this.createDots();
-        this.bindMouseMove();
-        this.animate();
-    }
-
-    createDots() {
-        for (let i = 0; i < 5; i++) {
-            const dot = document.createElement('div');
-            dot.className = 'mouse-dot';
-            dot.style.cssText = `
-                position: fixed;
-                width: 6px;
-                height: 6px;
-                background: linear-gradient(135deg, #0891b2, #0ea5e9);
-                border-radius: 50%;
-                pointer-events: none;
-                z-index: 9999;
-                opacity: ${0.8 - i * 0.15};
-                transition: opacity 0.3s ease;
-            `;
-            document.body.appendChild(dot);
-            this.dots.push({
-                element: dot,
-                x: 0,
-                y: 0,
-                targetX: 0,
-                targetY: 0
-            });
-        }
-    }
-
-    bindMouseMove() {
-        document.addEventListener('mousemove', (e) => {
-            this.mouse.x = e.clientX;
-            this.mouse.y = e.clientY;
-        });
-
-        document.addEventListener('mouseenter', () => {
-            this.dots.forEach(dot => {
-                dot.element.style.opacity = dot.element.style.opacity;
-            });
-        });
-
-        document.addEventListener('mouseleave', () => {
-            this.dots.forEach(dot => {
-                dot.element.style.opacity = '0';
-            });
-        });
-    }
-
-    animate() {
-        let targetX = this.mouse.x;
-        let targetY = this.mouse.y;
-
-        this.dots.forEach((dot, index) => {
-            dot.targetX = targetX;
-            dot.targetY = targetY;
-            
-            dot.x += (dot.targetX - dot.x) * 0.15;
-            dot.y += (dot.targetY - dot.y) * 0.15;
-
-            dot.element.style.transform = `translate(${dot.x - 3}px, ${dot.y - 3}px)`;
-
-            targetX = dot.x;
-            targetY = dot.y;
-        });
-
-        requestAnimationFrame(() => this.animate());
-    }
-}
-
-// Add CSS for animate-in class
+// Añade el CSS necesario para la clase 'animate-in' dinámicamente.
 const animationCSS = `
     .animate-in {
         opacity: 1 !important;
@@ -395,44 +266,43 @@ const animationCSS = `
     }
 `;
 
-// Inject animation CSS
+// Inyecta el CSS de la animación en el <head> del documento.
 const style = document.createElement('style');
 style.textContent = animationCSS;
 document.head.appendChild(style);
 
-// Initialize everything when DOM is loaded
+// Inicializa todas las clases y funcionalidades cuando el DOM está completamente cargado.
 document.addEventListener('DOMContentLoaded', () => {
-    // Core functionality
+    // Funcionalidades principales
     new ThemeManager();
     new NavigationManager();
     new SkillsAnimator();
-    new ContactFormManager();
     new ParallaxManager();
     new AnimationObserver();
     
-    // Optional enhancements (uncomment to enable)
+    // Mejoras opcionales (descomentar para habilitar)
     // new MouseTrail();
     
-    // Add loading complete class
+    // Añade una clase al body para indicar que la carga ha finalizado.
     setTimeout(() => {
         document.body.classList.add('loaded');
     }, 100);
 });
 
-// Handle page visibility changes
+// Gestiona los cambios de visibilidad de la página.
 document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
-        // Pause animations when tab is not visible
+        // Pausa las animaciones CSS cuando la pestaña no está visible.
         document.body.style.animationPlayState = 'paused';
     } else {
-        // Resume animations when tab becomes visible
+        // Reanuda las animaciones cuando la pestaña vuelve a estar visible.
         document.body.style.animationPlayState = 'running';
     }
 });
 
-// Handle window resize
+// Gestiona el redimensionamiento de la ventana.
 window.addEventListener('resize', debounce(() => {
-    // Recalculate any size-dependent elements
+    // Vuelve a calcular elementos dependientes del tamaño, como las barras de habilidades.
     const skillBars = document.querySelectorAll('.skill-progress');
     skillBars.forEach(bar => {
         const level = bar.getAttribute('data-level');

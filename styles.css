@@ -561,44 +561,6 @@ section {
     transform: scale(1.1);
 }
 
-/* .project-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(45deg, rgba(8, 145, 178, 0.8), rgba(14, 165, 233, 0.8));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-} */
-
-.project-card:hover .project-overlay {
-    opacity: 1;
-}
-
-.project-buttons {
-    display: flex;
-    gap: 12px;
-}
-
-.project-btn {
-    background: rgba(255, 255, 255, 0.9);
-    color: var(--text-primary);
-    border: none;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
-}
-
-.project-btn:hover {
-    background: white;
-    transform: translateY(-2px);
-}
-
 .project-content {
     padding: 24px;
 }
@@ -772,41 +734,6 @@ section {
     margin-bottom: 24px;
 }
 
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.form-label {
-    color: var(--text-secondary);
-    font-weight: 500;
-    font-size: 14px;
-}
-
-.form-input, .form-textarea {
-    padding: 12px 16px;
-    border: 2px solid var(--border-color);
-    border-radius: 12px;
-    background: var(--bg-primary);
-    color: var(--text-primary);
-    font-size: 16px;
-    transition: all 0.3s ease;
-    resize: none;
-}
-
-.form-input:focus, .form-textarea:focus {
-    outline: none;
-    border-color: var(--accent-primary);
-    box-shadow: 0 0 0 3px rgba(8, 145, 178, 0.1);
-}
-
 .form-submit {
     background: var(--accent-gradient);
     color: white;
@@ -855,10 +782,10 @@ section {
     height: 30px;
     object-fit: contain;
     display: inline-block;
-    margin-right: 8px;    /* Espacio a la derecha del icono */
+    margin-right: 8px;   
     margin-left: 0;
-    float: none;          /* Elimina el float */
-    vertical-align: middle; /* Alinea verticalmente con el texto */
+    float: none;         
+    vertical-align: middle; 
 }
 
 .info-icon {
@@ -960,37 +887,25 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0; /* Sin espacio entre logo-icon y logo-text */
+    gap: 0; 
     margin-bottom: 16px;
 }
 
 .logo-icon {
     display: flex;
     align-items: center;
-    justify-content: center; /* Centra horizontalmente la imagen dentro del contenedor */
-    height: 30px;      /* Altura sugerida para el logo */
-    width: 90px;       /* Ancho sugerido para el logo */
+    justify-content: center; 
+    height: 30px;     
+    width: 90px;      
     padding: 0;
-    margin: 0 auto;    /* Centra el contenedor si es necesario */
+    margin: 0 auto;    
 }
 
 .logo-icon img {
     height: 100%;
     width: auto;
     display: block;
-    margin: 0 auto;    /* Centra la imagen dentro del contenedor */
-}
-
-.logo-text {
-    display: block;
-    width: 120px;         /* Ajusta el ancho según tu imagen */
-    height: 32px;         /* Ajusta la altura según tu imagen */
-    object-fit: contain;  /* Mantiene la proporción de la imagen */
-    margin: 0 auto;
-    font-family: unset;
-    font-size: unset;
-    font-weight: unset;
-    color: unset;
+    margin: 0 auto;    
 }
 
 .footer-description {
@@ -1008,43 +923,6 @@ section {
 .footer-copyright {
     color: var(--text-muted);
     font-size: 14px;
-}
-
-/* Toast Notification */
-.toast {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: var(--backdrop-blur);
-    backdrop-filter: blur(10px);
-    color: var(--text-primary);
-    padding: 16px 24px;
-    border-radius: 12px;
-    box-shadow: 0 8px 32px var(--shadow-medium);
-    border: 1px solid var(--border-color);
-    transform: translateX(100%);
-    transition: transform 0.3s ease;
-    z-index: 1000;
-    max-width: 400px;
-}
-
-.toast.show {
-    transform: translateX(0);
-}
-
-.toast-content {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.toast-icon {
-    font-size: 20px;
-}
-
-.toast-message {
-    font-size: 14px;
-    line-height: 1.4;
 }
 
 /* Animations */
@@ -1127,16 +1005,16 @@ section {
         align-items: center;
         text-align: center;
         width: 100%;
-        max-width: 340px; /* Más reducido para móvil */
+        max-width: 340px; 
         box-sizing: border-box;
         margin: 0;
-        padding: 24px 10px; /* Reduce padding lateral */
-        overflow-wrap: break-word; /* Evita desbordes de texto */
+        padding: 24px 10px; 
+        overflow-wrap: break-word; 
         word-break: break-word;
     }
 
      .social-links-container {
-        margin-top: 40px; /* Añade separación arriba en móvil */
+        margin-top: 40px;
     }
 
     .contact-info-list,
